@@ -1,16 +1,14 @@
 import time
+from dblib import MySql
 from selenium import webdriver
-# from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support.wait import WebDriverWait
-# Imports para evitar fechamento imediato do Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.common.action_chains import ActionChains
 
 from utils import Utils
+
+sql = MySql()
 
 # Códigos para evitar crash do Chrome
 chrome_options = Options()
@@ -26,7 +24,6 @@ chrome_options.add_experimental_option("prefs", prefs)
 navigator = webdriver.Chrome(options=chrome_options)
 wait = WebDriverWait(navigator, 10)
 pub_ids = []
-
 
 class InstaScraping():
 
@@ -79,10 +76,10 @@ class InstaScraping():
         
 
 if __name__ == "__main__":
-    username0 = "User"
-    password0 = "Password"
+    username0 = ""
+    password0 = ""
 
     instaScrap = InstaScraping(username0, password0)
     instaScrap.run()
 
-    print(pub_ids)
+    
